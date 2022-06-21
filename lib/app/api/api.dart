@@ -17,7 +17,8 @@ Future<void> initAPIs() async {
   final _handler =
       const Pipeline().addMiddleware(logRequests()).addHandler(_handlers);
   final server = await serve(_handler, serverIP, serverPort);
-  print('Serving at http://${server.address.address}:${server.port}');
+  print('serverIP $serverIP');
+  print('Serving at http://${server.address.host}:${server.port}');
 }
 
 final _handlers = Router()

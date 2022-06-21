@@ -24,9 +24,7 @@ class RoomsView extends ConsumerWidget {
               itemBuilder: (_, i) {
                 final _info = ref.watch(roomInfoProvider(_data[i]));
                 return _info.when(
-                  data: (v) => v != null
-                      ? _RoomTile(v)
-                      : ListTile(title: Text(_data[i])),
+                  data: (v) => ListTile(title: Text(_data[i])),
                   error: (_, __) => ListTile(title: Text(_data[i])),
                   loading: () => const ListTile(title: Text('Loading...')),
                 );
